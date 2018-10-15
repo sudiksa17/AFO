@@ -1,6 +1,8 @@
 package com.observerapp.mobile.appforobserver;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +25,14 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
+import com.squareup.picasso.Picasso;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import static com.google.android.gms.common.internal.safeparcel.SafeParcelable.NULL;
 
 public class Login extends AppCompatActivity implements View.OnClickListener, GoogleApiClient.OnConnectionFailedListener{
 
@@ -47,7 +57,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener, Go
         Signin = (SignInButton) findViewById(R.id.Signin);
         name = (TextView) findViewById(R.id.name);
         email = (TextView) findViewById(R.id.email);
-        //prof_pic = (ImageView) findViewById(R.id.prof_pic);
+        prof_pic = (ImageView) findViewById(R.id.prof_pic);
         Signin.setOnClickListener(this);
         Signout.setOnClickListener(this);
 
@@ -99,15 +109,26 @@ public class Login extends AppCompatActivity implements View.OnClickListener, Go
         });
     }
 
-    private void handleResult(GoogleSignInResult result){
+    private void handleResult(GoogleSignInResult result) throws IOException {
         if(result.isSuccess()){
             GoogleSignInAccount account = result.getSignInAccount();
             String _name = account.getDisplayName();
             String _email = account.getEmail();
-            //String _img_url = account.getPhotoUrl().toString();
+            String _img_url;
+
+            if(account.getPhotoUrl()!=null) {
+                _img_url = String.valueOf(account.getPhotoUrl());
+            }else{
+                _img_url = "http://www.qygjxz.com/data/out/190/5691490-profile-pictures.png";
+            }
             name.setText(_name);
             email.setText(_email);
-          //  Glide.with(this).load(_img_url).into(prof_pic);
+
+            String imageUri = "https://i.imgur.com/tGbaZCY.jpg";
+            ImageView ivBasicImage = (ImageView) findViewById(R.id.prof_pic);
+            Picasso.with(this).load(_img_url).into(ivBasicImage);
+
+          // USELESS  Glide.with(this).load(_img_url).into(prof_pic);
             updateUI(true);
         }else{
             updateUI(false);
@@ -130,7 +151,11 @@ public class Login extends AppCompatActivity implements View.OnClickListener, Go
 
         if(requestCode==REQ_CODE){
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-            handleResult(result);
+            try {
+                handleResult(result);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 

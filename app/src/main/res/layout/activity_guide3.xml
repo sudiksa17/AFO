@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#fff"
+    tools:context=".Guide3Activity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/colorPrimary"
+        android:text="SUSPICIOUS BEHAVIOUR"
+        android:textColor="#fff"
+        android:textSize="30dp"
+        android:paddingTop="20dp"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="30dp"
+                android:textSize="20dp"
+                android:paddingLeft="10dp"
+                android:textColor="@color/colorPrimary"
+                android:text="@string/guide31"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="30dp"
+                android:paddingLeft="10dp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20dp"
+                android:text="@string/guide32"/>
+
+            <TextView
+                android:paddingLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="30dp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20dp"
+                android:text="@string/guide33"/>
+
+
+            <Button
+                android:id="@+id/b1"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="250dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NEXT" />
+        </LinearLayout>
+    </ScrollView>
+
+
+</android.support.constraint.ConstraintLayout>

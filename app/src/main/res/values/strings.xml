@@ -1,3 +1,71 @@
 <resources>
-    <string name="app_name">App For Observer</string>
+    <string name="facebook_app_id">368724610533649</string>
+    <string name="fb_login_protocol_scheme">fb368724610533649</string>
+    <string name="tnc1">I declare that I will be honest and truthful in the information that I will provide.</string>
+    <string name="tnc2">I will refrain myself from posting any content or photos on the application that is inadequate or unrelated to the crime.</string>
+    <string name="tnc3">I will not violate any intellectual property rights or will not disrupt any public order .</string>
+    <string name="tnc4">I will not commit any kind of defamation, that is ,I would not be using any insulting language particularly of a racial or discriminary nature.</string>
+    <string name="guide11">‘ordinary’ citizens</string>
+
+    <string name="guide12">through their actions, ably assist these badge-wielding crime fighters with their intelligence and bravery.
+</string>
+    <string name="guide13">
+Miscreants and evildoers are using the aid of modern technology to create disorder and unrest in our society, and we need to fight fire with fire</string>
+
+
+    <string name="guide21">Suspicious behavior is any observed behavior that could indicate any illegal
+        activity or any activity that could cause harm or disruption. This includes, but is not limited to:</string>
+    <string name="guide22"> A vehicle is parked in an odd location, a package/luggage is unattended, a window/door is open that is usually closed, or other out-of-the-ordinary situations occur.</string>
+    <string name="guide23"> A person questions individuals at a level beyond curiosity about a building’s purpose, operations, security procedures and/or personnel, shift changes, etc.</string>
+    <string name="guide24"> Someone pays unusual attention to facilities or buildings beyond a casual or professional interest. This includes extended loitering without explanation (particularly in concealed locations); unusual, repeated, and/or prolonged observation of a building</string>
+
+    <string name="guide31">Unusual noises like screaming,sounds off fighting, breaking glass.</string>
+    <string name="guide32">Abandoned parcels or other items in unusual location.</string>
+    <string name="guide33">
+Some of these activities could be innocent—its up to law enforcement to determine whether the behavior warrants investigation. The activities above are not all-inclusive, but have been compiled based on studies of pre-operational aspects of both successful and thwarted terrorist events over several years.</string>
+    <string name="guide41">Who or what you saw</string>
+    <string name="guide42">When you saw it</string>
+    <string name="guide43">Where it occurred</string>
+    <string name="guide44">Why its suspicious</string>
+    <string name="guide51">You believe someone is in physical danger.</string>
+    <string name="guide52">You believe a specific crime is happening.</string>
+    <string name="guide53">You believe something is suspicious .</string>
+    <string name="app_name">AFO</string>
+    <string name="title_audio">Audio</string>
+    <string name="title_photo">Photo</string>
+    <string name="title_video">Video</string>
+    <string name="testData">abjojiojhfuihfugunegiuunufjfjfhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+    fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggkggggkgkjgjjgdjfuguhfuuuuuuuuuuuuuuuuuuuuuuuuuuu
+    eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+    qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
+    333333333333333355555555555555tttttttttttttttttttttttttttttjjjjjjjjjjjjjjjjjjjjjjjgdeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+    eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+    wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+    qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
+    yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+    wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+    qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
+    bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+    iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</string>
+    <string name="title_activity_neighbourhood_activity">Neighbourhood_activity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_suspicious_po">SuspiciousPOA</string>
+    <string name="title_activity_suspicious">SuspiciousActivity</string>
+    <string name="title_activity_suspicious_person">SuspiciousPerson</string>
+    <string name="title_activity_report_crime">ReportCrime</string>
+
+    <string name="fname">First Name</string>
+    <string name="lname">Last Name</string>
+    <string name="email">Email</string>
+    <string name="mobile">Phone No.</string>
+    <string name="username">Email/Phone</string>
+    <string name="password">Password</string>
+    <string name="r_password">Re-Enter Password</string>
+    <string name="register">REGISTER</string>
+    <string name="login">LOGIN</string>
+
 </resources>

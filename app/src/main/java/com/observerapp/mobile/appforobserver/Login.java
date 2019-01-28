@@ -1,5 +1,6 @@
 package com.observerapp.mobile.appforobserver;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -7,13 +8,22 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
+import com.facebook.AccessToken;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -27,19 +37,25 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.squareup.picasso.Picasso;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Arrays;
 
 import static com.google.android.gms.common.internal.safeparcel.SafeParcelable.NULL;
 
 public class Login extends AppCompatActivity implements View.OnClickListener, GoogleApiClient.OnConnectionFailedListener{
 
     GoogleSignInClient mGoogleSignInClient;
+    CallbackManager callbackManager;
 
     private LinearLayout prof_section;
     private Button Signout;
+    private Button Continue;
     private SignInButton Signin;
     private TextView name , email;
     private ImageView prof_pic;
@@ -60,6 +76,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener, Go
         prof_pic = (ImageView) findViewById(R.id.prof_pic);
         Signin.setOnClickListener(this);
         Signout.setOnClickListener(this);
+        final ProgressDialog[] mDialog = new ProgressDialog[1];
 
         //prof_pic.setVisibility(View.GONE);
 
@@ -73,6 +90,70 @@ public class Login extends AppCompatActivity implements View.OnClickListener, Go
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
         googleApiClient = new GoogleApiClient.Builder(this).enableAutoManage(this , this).addApi(Auth.GOOGLE_SIGN_IN_API,gso).build();
+
+        callbackManager = CallbackManager.Factory.create();
+
+
+        LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
+        loginButton.setReadPermissions(Arrays.asList("public_profile","email","user_birthday"));
+        // If you are using in a fragment, call loginButton.setFragment(this);
+
+        // Callback registration
+        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                // App code
+                mDialog[0] = new ProgressDialog(Login.this);
+                mDialog[0].setMessage("Retriving Data...!!!");
+                mDialog[0].show();
+
+                String accesstoken = loginResult.getAccessToken().getToken();
+
+                GraphRequest request = GraphRequest.newMeRequest(loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
+                    @Override
+                    public void onCompleted(JSONObject object, GraphResponse response) {
+                        mDialog[0].dismiss();
+                        //Bundle facebookData = getFacebookData(object);
+                        Log.d("response",object.toString());
+                        getData(object);
+                    }
+                });
+            }
+
+            @Override
+            public void onCancel() {
+                // App code
+            }
+
+            @Override
+            public void onError(FacebookException exception) {
+                // App code
+            }
+        });
+
+        //if already logged in
+        if(AccessToken.getCurrentAccessToken() != null){
+            email.setText(AccessToken.getCurrentAccessToken().getUserId());
+        }
+    }
+
+    private void getData(JSONObject object){
+        try{
+            URL profile_picture = new URL("https://graph.facebook.com/"+object.getString("id")+"/picture?width=250&height=250");
+            Picasso.with(this).load(profile_picture.toString()).into(prof_pic);
+            email.setText(object.getString("email"));
+//            name.setText(object.getString("name")+"("+object.getString("birthday")+")"+"Friends: "+object.getJSONObject("friends").getJSONObject("summary").getString("total_count"));
+            //email.setText("Friends: "+object.getJSONObject("friends").getJSONObject("summary").getString("total_count"));
+
+        }catch (MalformedURLException e){
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void fbLogin(View v){
+
     }
 
     @Override
@@ -101,6 +182,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener, Go
     }
 
     private void SignOut(){
+//        Toast.makeText(this,"Tesing",Toast.LENGTH_SHORT).show();
         Auth.GoogleSignInApi.signOut(googleApiClient).setResultCallback(new ResultCallback<Status>() {
             @Override
             public void onResult(@NonNull Status status) {
@@ -157,6 +239,12 @@ public class Login extends AppCompatActivity implements View.OnClickListener, Go
                 e.printStackTrace();
             }
         }
+    }
+
+    public void Continue(View v){
+        Toast.makeText(this,"Tesing",Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(Login.this,terms_and_condition_1.class);
+        startActivity(i);
     }
 
 }

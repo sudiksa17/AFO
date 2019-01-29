@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".detail2Activity">
+    tools:context=".Detail2Activity">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,6 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp">
         <EditText
+            android:id="@+id/e1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Highest Education"/>
@@ -33,6 +35,7 @@
         android:layout_height="wrap_content"
         >
         <EditText
+            android:id="@+id/e2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Degree"/>
@@ -49,4 +52,6 @@
         android:layout_marginLeft="250dp"
         android:layout_marginTop="20dp"
         style="@style/Widget.AppCompat.Button.Borderless"/>
+
+
 </LinearLayout>

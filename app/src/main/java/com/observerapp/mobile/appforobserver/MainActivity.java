@@ -19,7 +19,7 @@ ImageButton b1,b2,b7;
         b2.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent( MainActivity.this,detail1Activity.class );
+                Intent i = new Intent( MainActivity.this,Detail1Activity.class );
                 startActivity( i );
 
             }

@@ -49,7 +49,11 @@
         <activity android:name=".Guide5Activity" />
         <activity android:name=".CategoriesActivity" />
         <activity android:name=".register000" />
-        <activity android:name=".Login"></activity>
+        <activity android:name=".Login" />
+        <activity android:name=".Detail1Activity" />
+        <activity android:name=".Detail2Activity" />
+        <activity android:name=".Detail3Activity" />
+        <activity android:name=".Detail4Activity" />
     </application>
 
 </manifest>

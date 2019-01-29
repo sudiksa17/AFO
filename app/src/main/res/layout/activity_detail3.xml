@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".detail3Activity">
+    tools:context=".Detail3Activity">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -59,4 +60,5 @@
         android:layout_marginLeft="250dp"
         android:layout_marginTop="20dp"
         style="@style/Widget.AppCompat.Button.Borderless"/>
+
 </LinearLayout>

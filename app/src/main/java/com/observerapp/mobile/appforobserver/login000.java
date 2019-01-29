@@ -1,6 +1,8 @@
 package com.observerapp.mobile.appforobserver;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,11 +24,16 @@ import com.observerapp.mobile.appforobserver.register000;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class login000 extends AppCompatActivity {
+public class login000 extends AppCompatActivity implements all_time{
 
     EditText e1,e2,e3,e4,e5;
     Button b1;
     ProgressBar pB1;
+    public static final String mypreference = "myPref";
+    public static final String username = "username";
+
+    SharedPreferences sharedpreferences;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,14 +45,34 @@ public class login000 extends AppCompatActivity {
         pB1= (ProgressBar) findViewById(R.id.pB1);
 
         pB1.setVisibility(View.GONE);
+
+        sharedpreferences = getSharedPreferences(mypreference,Context.MODE_PRIVATE);
+
+        if(sharedpreferences.contains(username)) {
+            Intent I = new Intent(login000.this,MainActivity.class);
+            startActivity(I);
+            finish();
+            //Toast.makeText(this, "THERE IS SOMETHING IN SHARED PREFERENCE", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    public void putSharedPref(String K, String V){
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.putString(K,V);
+        editor.commit();
+
+        Intent i = new Intent(login000.this,MainActivity.class);
+        startActivity(i);
+
     }
 
     public void login(View view){
 
         pB1.setVisibility(View.VISIBLE);
 
-        String s1 = e1.getText().toString();
-        String s2 = e2.getText().toString();
+        final String s1 = e1.getText().toString();
+        final String s2 = e2.getText().toString();
 
         String param = "?username="+s1+"&password="+s2+"&token=YDHVJKA";
 
@@ -55,7 +82,7 @@ public class login000 extends AppCompatActivity {
 
             // Instantiate the RequestQueue.
             RequestQueue queue = Volley.newRequestQueue(this);
-            final String url = "https://e7230f98.ngrok.io/PROJECTS/AFO/login.php"+param;
+            final String url = API_URL+"/PROJECTS/AFO/login.php"+param;
 
             // Request a string response from the provided URL.
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -71,8 +98,7 @@ public class login000 extends AppCompatActivity {
 
                                 if(res.get("result").equals("authenticated")){
                                     Toast.makeText(login000.this, "Welcome "+res.get("username"), Toast.LENGTH_SHORT).show();
-                                    Intent i = new Intent(login000.this,MainActivity.class);
-                                    startActivity(i);
+                                    putSharedPref(username,s1);
                                 }else{
                                     Toast.makeText(login000.this, "Invalid Username or Password", Toast.LENGTH_SHORT).show();
                                     b1.setEnabled(true);

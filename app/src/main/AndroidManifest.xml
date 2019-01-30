@@ -31,7 +31,6 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        /home/gv/AndroidStudioProjects/AppForObserver
         <activity android:name=".login000">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

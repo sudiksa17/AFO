@@ -17,6 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.observerapp.mobile.appforobserver.MainActivity;
 import com.observerapp.mobile.appforobserver.R;
 import com.observerapp.mobile.appforobserver.register000;
@@ -29,8 +30,7 @@ public class login000 extends AppCompatActivity implements all_time{
     EditText e1,e2,e3,e4,e5;
     Button b1;
     ProgressBar pB1;
-    public static final String mypreference = "myPref";
-    public static final String username = "username";
+    public static final String userId = "userId";
 
     SharedPreferences sharedpreferences;
 
@@ -97,8 +97,10 @@ public class login000 extends AppCompatActivity implements all_time{
                                 JSONObject res = new JSONObject(response);
 
                                 if(res.get("result").equals("authenticated")){
-                                    Toast.makeText(login000.this, "Welcome "+res.get("username"), Toast.LENGTH_SHORT).show();
+                                    String userIdVal = res.get("userId").toString();
+                                    Toast.makeText(login000.this, "Welcome "+res.get("username")+"("+userIdVal+")", Toast.LENGTH_SHORT).show();
                                     putSharedPref(username,s1);
+                                    putSharedPref(userId,userIdVal);
                                 }else{
                                     Toast.makeText(login000.this, "Invalid Username or Password", Toast.LENGTH_SHORT).show();
                                     b1.setEnabled(true);

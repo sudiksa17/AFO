@@ -57,6 +57,7 @@
                     android:id="@+id/e3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:hint="Age"/>
             </android.support.design.widget.TextInputLayout>
 
@@ -110,7 +111,6 @@
                 android:textSize="20dp"
                 android:layout_marginLeft="250dp"
                 android:layout_marginTop="20dp"
-                style="@style/Widget.AppCompat.Button.Borderless"
                 android:onClick="add_user_info1"/>
         </LinearLayout>
     </ScrollView>

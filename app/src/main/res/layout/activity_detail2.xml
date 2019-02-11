@@ -28,6 +28,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Highest Education"/>
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/Hq">
+
+        </Spinner>
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -42,6 +48,15 @@
     </android.support.design.widget.TextInputLayout>
 
 
+
+    <ProgressBar
+        android:id="@+id/pB1"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+
+
     <Button
         android:id="@+id/b1"
         android:layout_width="wrap_content"
@@ -51,7 +66,8 @@
         android:textSize="20dp"
         android:layout_marginLeft="250dp"
         android:layout_marginTop="20dp"
-        style="@style/Widget.AppCompat.Button.Borderless"/>
+        android:onClick="add_user_info2"
+    />
 
 
 </LinearLayout>

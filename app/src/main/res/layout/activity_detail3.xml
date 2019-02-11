@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp">
         <EditText
+            android:id="@+id/e1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Occupation"/>
@@ -34,11 +35,36 @@
         android:layout_height="wrap_content"
         >
         <EditText
+            android:id="@+id/e2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Working Hours"/>
+            android:inputType="number"
+            android:hint="Number of working Hours"/>
     </android.support.design.widget.TextInputLayout>
 
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/shift">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Day Shift"
+                android:id="@+id/shiftday"
+                android:checked="true"
+                />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Day Night"
+                android:id="@+id/shiftnight"/>
+
+        </RadioGroup>
+
+<!--
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,6 +76,16 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="110dp"
         android:text="Night"/>
+    -->
+
+
+    <ProgressBar
+        android:id="@+id/pB1"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+
     <Button
         android:id="@+id/b1"
         android:layout_width="wrap_content"
@@ -58,7 +94,7 @@
         android:textColor="@color/colorPrimary"
         android:textSize="20dp"
         android:layout_marginLeft="250dp"
-        android:layout_marginTop="20dp"
-        style="@style/Widget.AppCompat.Button.Borderless"/>
+        android:onClick="add_user_info3"
+        android:layout_marginTop="20dp"/>
 
 </LinearLayout>

@@ -31,7 +31,7 @@
         android:layout_height="wrap_content" >
 
         <RadioButton
-            android:id="@+id/radioMale"
+            android:id="@+id/radioYes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -39,13 +39,22 @@
             />
 
         <RadioButton
-            android:id="@+id/radioFemale"
+            android:id="@+id/radioNo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="No" />
 
     </RadioGroup>
+
+    <ProgressBar
+        android:id="@+id/pB1"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+
+
     <Button
         android:id="@+id/b1"
         android:layout_width="wrap_content"
@@ -54,8 +63,9 @@
         android:textColor="@color/colorPrimary"
         android:textSize="20dp"
         android:layout_marginLeft="250dp"
+        android:onClick="add_user_info4"
         android:layout_marginTop="20dp"
-        style="@style/Widget.AppCompat.Button.Borderless"/>
+        />
 
 
 </LinearLayout>

@@ -1,6 +1,8 @@
 package com.observerapp.mobile.appforobserver;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,10 +18,15 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class Detail1Activity extends AppCompatActivity  implements all_time{
     Button b1;
     EditText e1,e2,e3,e4,e5,e6;
     ProgressBar pB1;
+    SharedPreferences sharedpreferences;
+    String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +39,14 @@ public class Detail1Activity extends AppCompatActivity  implements all_time{
         e5 = (EditText)findViewById(R.id.e5);
         e6 = (EditText)findViewById(R.id.e6);
         b1 = (Button)findViewById(R.id.b1);
+        pB1= (ProgressBar)findViewById(R.id.pB1);
 
+        sharedpreferences = getSharedPreferences(mypreference, Context.MODE_PRIVATE);
+        userId = sharedpreferences.getString("userId","");
+
+        //Toast.makeText(this, userId, Toast.LENGTH_SHORT).show();
+
+        pB1.setVisibility(View.GONE);
         /*
         b1.setOnClickListener( new View.OnClickListener() {
             @Override
@@ -56,13 +70,10 @@ public class Detail1Activity extends AppCompatActivity  implements all_time{
         String s5 = e5.getText().toString();
         String s6 = e6.getText().toString();
 
-        String param = "?first_name="+s1+"&last_name="+s2+"&age="+s3+"&address="+s4+"&city="+s5+"&adhaar="+s6+"&token=YDHVJKA";
+        String param = "?first_name="+s1+"&last_name="+s2+"&age="+s3+"&address="+s4+"&city="+s5+"&adhaar="+s6+"&token=YDHVJKA&user_id="+userId;
         b1.setEnabled(false);
 
-        pB1.setVisibility(View.GONE);
-
         try{
-
             // Instantiate the RequestQueue.
             RequestQueue queue = Volley.newRequestQueue(this);
             final String url = API_URL+"/PROJECTS/AFO/add_user_info1.php"+param;
@@ -76,22 +87,36 @@ public class Detail1Activity extends AppCompatActivity  implements all_time{
 //                            res.setText("Response is: "+ response);
                             pB1.setVisibility(View.GONE);
 
-                            if(response.equals("1")){
+                            try {
+                                JSONObject res = new JSONObject(response);
 
-                                Intent i = new Intent( Detail1Activity.this,Detail2Activity.class );
-                                startActivity( i );
-                                overridePendingTransition( R.anim.slide_in_right,R.anim.slide_out_left );
-                                /*
-                                Toast.makeText(Detail1Activity.this, "Successful Registration", Toast.LENGTH_SHORT).show();
-                                Intent i = new Intent(Detail1Activity.this,login000.class);
-                                startActivity(i);
-                                */
-                            }else{
+                                if(res.get("result").equals("inserted")){
+                                    Intent i = new Intent( Detail1Activity.this,Detail2Activity.class );
+                                    startActivity( i );
+                                    overridePendingTransition( R.anim.slide_in_right,R.anim.slide_out_left );
+                                }else{
+                                    Toast.makeText(Detail1Activity.this, "Unable to Save", Toast.LENGTH_SHORT).show();
+                                    b1.setEnabled(true);
+                                }
 
-                                Toast.makeText(Detail1Activity.this, "Unable to save & Process your request", Toast.LENGTH_SHORT).show();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
                                 b1.setEnabled(true);
-
                             }
+
+
+
+//                            if(response.equals("1")){
+//
+//                                Intent i = new Intent( Detail1Activity.this,Detail2Activity.class );
+//                                startActivity( i );
+//                                overridePendingTransition( R.anim.slide_in_right,R.anim.slide_out_left );
+//                            }else{
+//
+//                                Toast.makeText(Detail1Activity.this, "Unable to save & Process your request", Toast.LENGTH_SHORT).show();
+//                                b1.setEnabled(true);
+//
+//                            }
                         }
                     }, new Response.ErrorListener() {
                 @Override
@@ -106,10 +131,11 @@ public class Detail1Activity extends AppCompatActivity  implements all_time{
             // Add the request to the RequestQueue.
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             queue.add(stringRequest);
-
+            b1.setEnabled(false);
 
         }catch (Exception e){
             Toast.makeText(this, "BAAL BAAL BACHA", Toast.LENGTH_SHORT).show();
+            b1.setEnabled(false);
         }
 
     }

@@ -32,5 +32,37 @@ ImageButton b1,b2,b7;
                 overridePendingTransition( R.anim.slide_in_left,R.anim.slide_out_right );
             }
         } );
+        b3.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent( MainActivity.this,Tab1.class );
+                startActivity( i );
+
+            }
+        } );
+        b4.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent( MainActivity.this,Tab2.class );
+                startActivity( i );
+
+            }
+        } );
+        b5.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent( MainActivity.this,Tab3.class );
+                startActivity( i );
+
+            }
+        } );
+        b6.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent( MainActivity.this,Tab4.class );
+                startActivity( i );
+
+            }
+        } );
     }
 }

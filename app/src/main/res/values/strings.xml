@@ -67,5 +67,9 @@ Some of these activities could be innocent—its up to law enforcement to determ
     <string name="r_password">Re-Enter Password</string>
     <string name="register">REGISTER</string>
     <string name="login">LOGIN</string>
+    <string name="title_activity_tab1">Tab1</string>
+    <string name="title_activity_tab2">Tab2</string>
+    <string name="title_activity_tab3">Tab3</string>
+    <string name="title_activity_tab4">Tab4</string>
 
 </resources>

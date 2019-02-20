@@ -246,5 +246,4 @@ public class Login extends AppCompatActivity implements View.OnClickListener, Go
         Intent i = new Intent(Login.this,terms_and_condition_1.class);
         startActivity(i);
     }
-
 }

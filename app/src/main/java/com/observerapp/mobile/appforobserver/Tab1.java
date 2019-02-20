@@ -39,6 +39,7 @@ public class Tab1 extends captureImage {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tab1);
 
+
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);

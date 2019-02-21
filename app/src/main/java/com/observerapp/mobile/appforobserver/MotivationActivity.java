@@ -27,9 +27,6 @@ public class MotivationActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_motivation);
 
-        Intent i = new Intent(MotivationActivity.this,Tab1.class);
-        startActivity(i);
-
         b1 = (Button) findViewById(R.id.b1);
         curious = (CheckBox) findViewById(R.id.curious);
         curious.setOnClickListener(this);

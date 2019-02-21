@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 public class Tab1 extends captureImage {
 
-    private TextView mTextMessage;
+ //   private TextView mTextMessage;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -19,15 +19,15 @@ public class Tab1 extends captureImage {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     takePicAndDisplayIt();
-                    mTextMessage.setText(R.string.title_home);
+             //       mTextMessage.setText(R.string.title_home);
                     return true;
                 case R.id.navigation_dashboard:
                     recordVideo();
-                    mTextMessage.setText(R.string.title_dashboard);
+               //     mTextMessage.setText(R.string.title_dashboard);
                     return true;
                 case R.id.navigation_notifications:
                     recordAudio();
-                    mTextMessage.setText(R.string.title_notifications);
+              //      mTextMessage.setText(R.string.title_notifications);
                     return true;
             }
             return false;
@@ -40,7 +40,7 @@ public class Tab1 extends captureImage {
         setContentView(R.layout.activity_tab1);
 
 
-        mTextMessage = (TextView) findViewById(R.id.message);
+    //    mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }

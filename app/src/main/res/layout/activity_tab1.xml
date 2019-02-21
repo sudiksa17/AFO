@@ -1,33 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Tab1">
 
-    <TextView
-        android:id="@+id/message"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:text="@string/title_home"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Report Crime"
+            android:textSize="30dp"
+            android:paddingLeft="40dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:fontFamily="serif"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <FrameLayout
+                android:id="@+id/frameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/text"
+                android:layout_above="@id/navigation">
+
+
+                <!-- <Button android:id="@+id/opengallery"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="Open Gallery"
+                     />
+                 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <EditText
+                        android:id="@+id/CriminalID"
+                        android:layout_height="wrap_content"
+                        android:layout_width="280dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="20dp"
+                        android:hint="Identity(if any) of Criminal"/>
+
+                    <EditText
+                        android:id="@+id/affectedID"
+                        android:layout_height="wrap_content"
+                        android:layout_width="280dp"
+                        android:layout_marginLeft="50dp"
+                        android:hint="Identity(if any) of Person affected"/>
+
+                    <EditText
+                        android:id="@+id/location"
+                        android:layout_height="wrap_content"
+                        android:layout_width="250dp"
+                        android:layout_marginLeft="50dp"
+                        android:hint="Location"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Location"
+                        android:layout_marginLeft="130dp"
+                        android:background="@color/green"
+                        android:onClick="map"
+                        />
+
+                    <CheckBox android:id="@+id/chk1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="50dp"
+                        android:text="Witnessed the crime?"
+                        />
+                    <CheckBox android:id="@+id/chk2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="50dp"
+                        android:text="Is human life at stake??"
+                        />
+                    <!-- onclick daalna hai-->
+                    <CheckBox android:id="@+id/chk3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="50dp"
+                        android:text="Urgent action required?"
+                        />
+                    <EditText
+                        android:id="@+id/info"
+                        android:layout_width="250dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="50dp"
+                        android:hint="Explain the crime briefly"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <Button
+                            android:id="@+id/submit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="25dp"
+                            android:text="SUBMIT"
+                            android:layout_marginLeft="130dp"
+                            android:padding="10dp"
+                            android:layout_marginBottom="80dp"
+                            android:layout_marginTop="20dp"
+                            android:background="@color/green"/>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:id="@+id/selectedImage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <!--<TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/testData"
+                        android:textSize="20dp"
+                        android:layout_marginBottom="100dp"/>
+                    -->
+                </LinearLayout>
+            </FrameLayout>
+        </ScrollView>
+
+    </LinearLayout>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
+        android:layout_alignParentBottom="true"
         android:background="?android:attr/windowBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/navigation" />
+    </RelativeLayout>
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

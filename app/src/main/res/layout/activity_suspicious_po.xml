@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SuspiciousPOA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Suspicious Object"
+            android:textSize="30dp"
+            android:paddingLeft="60dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:fontFamily="serif"/>
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <FrameLayout
+                android:id="@+id/frameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/text"
+                android:layout_above="@id/navigation">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/objkind"
+                        android:layout_height="wrap_content"
+                        android:layout_width="250dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="30dp"
+                        android:hint="Kind of Object"/>
+
+
+                    <CheckBox android:id="@+id/chk1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="50dp"
+                        android:text="seen the suspicious object?"
+                        />
+
+                    <CheckBox android:id="@+id/chk2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="50dp"
+                        android:text="Giving proof like photo or video?"
+                        />
+                    <!-- onclick daalna hai-->
+                    <CheckBox android:id="@+id/chk3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="50dp"
+                        android:text="Urgent action required?"
+                        />
+                    <CheckBox android:id="@+id/chk4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="50dp"
+                        android:text="Is it harmful like explosive or artilery?"
+                        />
+
+
+                    <EditText
+                        android:id="@+id/info"
+                        android:layout_width="250dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="50dp"
+                        android:hint="Explain the Suspicious object in detail"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <Button
+                            android:id="@+id/submit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="25dp"
+                            android:text="SUBMIT"
+                            android:layout_marginLeft="130dp"
+                            android:layout_marginBottom="80dp"
+                            android:padding="10dp"
+                            android:background="@color/green"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+                <!--<TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/testData"
+                    android:textSize="20dp"
+                    android:layout_marginBottom="100dp"/>
+                -->
+            </FrameLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/navigation" />
+    </RelativeLayout>
+
+</LinearLayout>

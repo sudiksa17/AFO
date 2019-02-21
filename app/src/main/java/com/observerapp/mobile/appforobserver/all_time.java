@@ -1,7 +1,7 @@
 package com.observerapp.mobile.appforobserver;
 
 public interface all_time {
-    public static final String API_URL = "http://d31be74b.ngrok.io";
+    public static final String API_URL = "http://fe04eb6b.ngrok.io";
     public static final String API_URL_TRUE = API_URL+"/PROJECTS/AFO";
     //public static final String API_URL = "http://afo.epizy.com";
     public static final String mypreference = "myPref";
